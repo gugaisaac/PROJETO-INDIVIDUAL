@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_bar{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: 50%;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav_bar .ativo{
+    font-weight: bolder;
+}
+.nav_bar li{
+    color:rgb(255, 255, 255);
+    font-weight: lighter;
+}
+.nav_bar li a{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+.imagens{
+    width: 100vw;
+    height: 60vh;
+    background-color: chocolate;
+}
+
+.meio{
+    width: 100vw;
+    height: 180vh;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+}
+.conteudo{
+    width: 50%;
+    height: 50%;
+    background-color: gold;
+}
+.conteudo2{
+    width: 50%;
+    height: 50%;
+    background-color: gold;
+    margin-left: 50%;
+}
+.conteudo3{
+    width: 50%;
+    height: 50%;
+    background-color: gold;
+   
+}
+.rodape{
+    width: 100vw;
+    height: 10vh;
+    background-color: darkmagenta;
+}
+div img{
+    width: 156px;
+    height: 106px;
+    margin-top: 2px;
+}
+
