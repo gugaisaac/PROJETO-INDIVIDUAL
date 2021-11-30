@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/doctor-who-icon-24.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_cadastro.css">
+    <link rel="stylesheet" href="css/style_login.css">
+    <script src="./assets/js/funcoes.js"></script>
+    <title>Pagina principal</title>
+</head>
+ <body>
+    <div class="header">
+        <div class="container">
+            <img src="assets/logo.png" class="logo">
+            <ul class="nav_bar">
+                <li><a href="index.html">Inicio</a></li>
+                
+                <li>|</li>
+
+                <li><a href="login.html"> Login</a></li>
+
+                <li class="ativo"><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="meio_cadastro">
+        <div class="banner-login">
+            <div class="container">
+                <img src="assets/luzinha.png" class="luz" id="luzes">
+                <div class="card medio" id="girar">
+                    <h2>Olá de volta!</h2>
+                    <div class="formulario">
+                        <form id="form_login" method="post" onsubmit="return entrar()">
+                            E-mail:
+                            <input name="email" type="text" placeholder="Login">
+                            <br>
+                            Senha:
+                            <input name="senha" type="password" placeholder="******">
+                            <br>
+                            <button class="btn" type="submit">
+                                Entrar
+                            </button>
+                        </form>
+
+
+                    </div>
+
+
+                    <div id="div_erros_login">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <div class="container">
+             Feito e desenvolvido por um whovian<img src="assets/BBCDoctorWhoTardis2021.png" class="logo_doctor"> e aluno BandTec
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    function Chegar(){
+        document.getElementById("girar").classList.toggle('chegou');
+        document.getElementById("luzes").classList.toggle('chegou');
+    }
+    var audioStart = new Audio('./assets/musicas/tardis-materalizando.mp3');
+        audioStart.currentTime = 13;
+        audioStart.play();
+    Chegar();
+    
+    function limparFormulario() {
+        document.getElementById("form_login").reset();
+    }
+
+    function entrar() {
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (email == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            return false;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "mural.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

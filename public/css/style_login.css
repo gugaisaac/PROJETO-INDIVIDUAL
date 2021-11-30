@@ -1,0 +1,18 @@
+.chegou {
+    animation: rotate 3s linear 3;
+    
+}
+@keyframes rotate {
+    from {
+        transform: rotateY(359deg);
+        transition: all 2.5s;
+        opacity:0.3;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        transition: all 2.5s;
+        opacity:1;
+    }
+    
+}

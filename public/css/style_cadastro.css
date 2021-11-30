@@ -1,0 +1,127 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.meio_cadastro{
+    width: 88vw;
+    height: 80vh;
+    background-color: #003B6F;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6vw;
+
+}
+
+.banner-login {
+    color: white;
+    height: 550px;
+    /* border: 3px solid yellow; */
+    background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png");
+    background-size: cover;
+}
+
+.banner-login .container {
+    height: 550px;
+    /* border: 3px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.banner-login {
+    color: black;
+}
+
+.banner-login .card {
+    background-color: #E5E5E5;
+    height: 450px;
+    width: 265px;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+
+.banner-login a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner-login #div_erros_login {
+    margin-top: 15px;
+}
+
+button {
+    cursor: pointer;
+}
+/* FORMULARIO */
+
+input {
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    
+}
+
+.btn {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: black;
+    width: 120px;
+    align-self: center;
+}
+.btn:hover {
+    background-color: #003B6F;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+.luz{
+    width: 60px;
+    height: 52px;
+    
+}
+.giro {
+    animation: rotate 3s linear 3;
+    
+}
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+        transition: all 2.5s;
+        opacity:1;
+    }
+
+    to {
+        transform: rotateY(359deg);
+        transition: all 2.5s;
+        opacity:0.3;
+    }
+    
+}
