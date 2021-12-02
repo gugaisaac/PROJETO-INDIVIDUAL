@@ -3,7 +3,10 @@ body {
     padding: 0;
     font-family: 'Exo 2';
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    background-color: black;
+    background-image: url("../assets/peakpx.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+
 }
 
 .container {
@@ -359,5 +362,9 @@ form {
 .logo_mural{
     width: 200px;
     height: 150px;
-    margin-top: 2px;
+    margin-top: 80px;
+}
+.mostrar_doc{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

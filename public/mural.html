@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+    <body onload="atualizarFeed(), validarSessao(), listardoutor()" >
     <div class="janela">
         <div class="header-left">
 
@@ -28,7 +28,24 @@
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-
+                <div class="mostrar_doc"><h2>Quantidade de fãs de cada Doutor</h2><br>
+                <h3>
+                    Primeiro Doutor: <span id="sp_doc1"></span><br>
+                    Segundo Doutor: <span id="sp_doc2"></span><br>
+                    Terceiro Doutor: <span id="sp_doc3"></span><br>
+                    Quarto Doutor: <span id="sp_doc4"></span><br>
+                    Quinta Doutor: <span id="sp_doc5"></span><br>
+                    Sexto Doutor: <span id="sp_doc6"></span><br>
+                    Setimo Doutor: <span id="sp_doc7"></span><br>
+                    Oitavo Doutor: <span id="sp_doc8"></span><br>
+                    War: <span id="sp_doc9"></span><br>
+                    Nono Doutor: <span id="sp_doc10"></span><br>
+                    Decimo Doutor: <span id="sp_doc11"></span><br>
+                    Decimo primeiro Doutor: <span id="sp_doc12"></span><br>
+                    Decimo segundo Doutor: <span id="sp_doc13"></span><br>
+                    Decima terceira Doutor: <span id="sp_doc14"></span><br>
+                </h3>
+            </div>
             <div class="btn-nav">
                 <a href="mural.html"><h3>Feed das discussões</h3></a>
             </div>
@@ -114,6 +131,200 @@
 
         return false;
 
+    }
+    function listardoutor(){
+        fetch("/avisos/listardoutor").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    
+                    sp_doc1.innerHTML = "<b>0</b>";
+                    sp_doc2.innerHTML = "<b>0</b>";      
+                    sp_doc3.innerHTML = "<b>0</b>";  
+                    sp_doc4.innerHTML = "<b>0</b>";  
+                    sp_doc5.innerHTML = "<b>0</b>";  
+                    sp_doc6.innerHTML = "<b>0</b>";  
+                    sp_doc7.innerHTML = "<b>0</b>";  
+                    sp_doc8.innerHTML = "<b>0</b>";  
+                    sp_doc9.innerHTML = "<b>0</b>";  
+                    sp_doc10.innerHTML = "<b>0</b>";  
+                    sp_doc11.innerHTML = "<b>0</b>";  
+                    sp_doc12.innerHTML = "<b>0</b>";  
+                    sp_doc13.innerHTML = "<b>0</b>";  
+                    sp_doc14.innerHTML = "<b>0</b>";  
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        console.log("QTD: " +publicacao.qtd_doutor+" Doutor: "+publicacao.DoutorFav);
+                        if(publicacao.qtd_doutor > 0 && publicacao.DoutorFav == 1){
+                            sp_doc1.innerHTML = "<b>" + publicacao.qtd_doutor + "</b>";
+                            console.log("entrou no 1");
+                        }else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 2 ){
+                            sp_doc2.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 2");
+                        }else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 3){
+                            sp_doc3.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";    
+                            console.log("entrou no 3");
+                        }
+                        else  if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 4){
+                            sp_doc4.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 4");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 5){
+                            sp_doc5.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 5");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 6){
+                            sp_doc6.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 6");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 7){
+                            sp_doc7.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 7");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 8){
+                            sp_doc8.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 8");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 9){
+                            sp_doc9.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 9");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 10){
+                            sp_doc10.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 10");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 11){
+                            sp_doc11.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 11");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 12){
+                            sp_doc12.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 12");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 13){
+                            sp_doc13.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 13");
+                        }
+                        else if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 14){
+                            sp_doc14.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 14");
+                        }
+                       
+                       /**if((publicacao.qtd_doutor > 0 && publicacao.DoutorFav == 1) && (sp_doc1 == "0" ||sp_doc1 == "") ){
+                            sp_doc1.innerHTML = "<b>" + publicacao.qtd_doutor + "</b>";
+                            console.log("entrou no 1");
+                            seila++
+                        } 
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 2 ){
+                            sp_doc2.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 2");
+                        }
+                        else{
+                            sp_doc2.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 3){
+                            sp_doc3.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";    
+                            console.log("entrou no 3");
+                        }
+                        else{
+                            sp_doc3.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 4){
+                            sp_doc4.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 4");
+                        }
+                        else{
+                            sp_doc4.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 5){
+                            sp_doc5.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 5");
+                        }
+                        else{
+                            sp_doc5.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 6){
+                            sp_doc6.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 6");
+                        }
+                        else{
+                            sp_doc6.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 7){
+                            sp_doc7.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 7");
+                        }
+                        else{
+                            sp_doc7.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 8){
+                            sp_doc8.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 8");
+                        }
+                        else{
+                            sp_doc8.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 9){
+                            sp_doc9.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 9");
+                        }
+                        else{
+                            sp_doc9.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 10){
+                            sp_doc10.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 10");
+                        }
+                        else{
+                            sp_doc10.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 11){
+                            sp_doc11.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 11");
+                        }
+                        else{
+                            sp_doc11.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 12){
+                            sp_doc12.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 12");
+                        }
+                        else{
+                            sp_doc12.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 13){
+                            sp_doc13.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 13");
+                        }
+                        else{
+                            sp_doc13.innerHTML = "<b>0</b>";    
+                        }
+                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 14){
+                            sp_doc14.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
+                            console.log("entrou no 14");
+                        }
+                        else{
+                            sp_doc14.innerHTML = "<b>0</b>";    
+                        }*/
+                        else{
+                            alert("deu algum problema");
+                        }
+                    }
+                    
+
+                });
+            } else {
+                throw('Houve um erro pra puxar os dados!' + error);
+            }
+        }).catch(function(resposta) {
+            console.error(resposta);
+
+        });
+    
     }
 
     function atualizarFeed() {

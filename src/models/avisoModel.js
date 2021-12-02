@@ -79,7 +79,13 @@ function editar(novoTitulo, novaDescricao, idMural) {
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
 }
-
+function listardoutor(){
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listardoutor(): ");
+    var instrucao = `SELECT count(doutor_fav) as 'qtd_doutor', doutor_fav as 'DoutorFav' FROM usuario group by doutor_fav order by doutor_fav ASC;
+    `;
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+}
 function deletar(idMural) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     var instrucao = `
@@ -95,5 +101,6 @@ module.exports = {
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    listardoutor
 }
