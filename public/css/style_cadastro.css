@@ -67,6 +67,11 @@ input {
     border-radius: 10px;
     
 }
+select {
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
 
 .btn {
     font-family: Georgia, 'Times New Roman', Times, serif;

@@ -143,13 +143,13 @@
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        spanID.innerHTML = "ID: <b>" + publicacao.idMural + "</b>";
                         spanTitulo.innerHTML = "Título: <b>"+publicacao.titulo+"</b>";
                         spanNome.innerHTML = "Autor: <b>"+publicacao.nome+"</b>";
                         divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        spanTitulo.id = "inputNumero"+publicacao.idMural;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";

@@ -44,6 +44,23 @@
                             Confirmação da Senha:
                             <input name="confirmacao-senha" type="password" placeholder="******">
                             <br>
+                            <select name="doutor_fav">
+                                <option value="-">-- Selecione qual o seu Doutor favorito --</option>
+                                <option value="1">Primeiro Doutor</option>
+                                <option value="2">Segundo Doutor</option>
+                                <option value="3">Terceiro Doutor</option>
+                                <option value="4">Quarto Doutor</option>
+                                <option value="5">Quinta Doutor</option>
+                                <option value="6">Sexto Doutor</option>
+                                <option value="7">Setimo Doutor</option>
+                                <option value="8">Oitavo Doutor</option>
+                                <option value="9">War</option>
+                                <option value="10">Nono Doutor</option>
+                                <option value="11">Decimo Doutor</option>
+                                <option value="12">Decimo primeiro Doutor</option>
+                                <option value="13">Decimo segundo Doutor</option>
+                                <option value="14">Decima terceira Doutor</option>
+                            </select>
                             <button class="btn">Cadastrar</button>
                         </form>
                     </div>
@@ -74,8 +91,10 @@
         var email = formulario.get("email");
         var senha = formulario.get("senha");
         var confirmacaoSenha = formulario.get("confirmacao-senha");
+        var doutor_fav = formulario.get("doutor_fav");
+        
 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || doutor_fav == "") {
             
             window.alert("Preencha todos os campos para prosseguir!");
             if (nome == "")  {
@@ -90,6 +109,9 @@
             if (confirmacaoSenha == "" )  {
                 console.log('confirmacaoSenha está em branco')
             }
+            if(doutor_fav == ""){
+                console.log('confirmacaoSenha está em branco')
+            }
             return false;
         }
         
@@ -100,6 +122,10 @@
         
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            return false;
+        }
+        if(doutor_fav == "-"){
+            window.alert("Selecione um doutor favorito");
             return false;
         }
       
