@@ -24,7 +24,7 @@
         <div class="header-left">
 
             <img src="assets/logo.png" class="logo_mural">
-
+            <div class="mostrar_usuario"><h3>Quantidade de Usuario no site: <span id="sp_qtd_usuario"></span></h3></div>
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
@@ -92,8 +92,8 @@
 
 </html>
 
-<script>
-
+<script>                         
+    var qtdusuarios = Number(0);
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
@@ -213,108 +213,13 @@
                             sp_doc14.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
                             console.log("entrou no 14");
                         }
-                       
-                       /**if((publicacao.qtd_doutor > 0 && publicacao.DoutorFav == 1) && (sp_doc1 == "0" ||sp_doc1 == "") ){
-                            sp_doc1.innerHTML = "<b>" + publicacao.qtd_doutor + "</b>";
-                            console.log("entrou no 1");
-                            seila++
-                        } 
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 2 ){
-                            sp_doc2.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 2");
-                        }
-                        else{
-                            sp_doc2.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 3){
-                            sp_doc3.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";    
-                            console.log("entrou no 3");
-                        }
-                        else{
-                            sp_doc3.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 4){
-                            sp_doc4.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 4");
-                        }
-                        else{
-                            sp_doc4.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 5){
-                            sp_doc5.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 5");
-                        }
-                        else{
-                            sp_doc5.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 6){
-                            sp_doc6.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 6");
-                        }
-                        else{
-                            sp_doc6.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 7){
-                            sp_doc7.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 7");
-                        }
-                        else{
-                            sp_doc7.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 8){
-                            sp_doc8.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 8");
-                        }
-                        else{
-                            sp_doc8.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 9){
-                            sp_doc9.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 9");
-                        }
-                        else{
-                            sp_doc9.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 10){
-                            sp_doc10.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 10");
-                        }
-                        else{
-                            sp_doc10.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 11){
-                            sp_doc11.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 11");
-                        }
-                        else{
-                            sp_doc11.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 12){
-                            sp_doc12.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 12");
-                        }
-                        else{
-                            sp_doc12.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 13){
-                            sp_doc13.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 13");
-                        }
-                        else{
-                            sp_doc13.innerHTML = "<b>0</b>";    
-                        }
-                        if(publicacao.qtd_doutor >0 && publicacao.DoutorFav == 14){
-                            sp_doc14.innerHTML = "<b>"+publicacao.qtd_doutor+"</b>";
-                            console.log("entrou no 14");
-                        }
-                        else{
-                            sp_doc14.innerHTML = "<b>0</b>";    
-                        }*/
                         else{
                             alert("deu algum problema");
                         }
+                        qtdusuarios = qtdusuarios + publicacao.qtd_doutor;
+                        console.log("QTD de usuario" + qtdusuarios);
                     }
-                    
+                    sp_qtd_usuario.innerHTML = `${qtdusuarios}`;
 
                 });
             } else {
@@ -324,7 +229,7 @@
             console.error(resposta);
 
         });
-    
+        
     }
 
     function atualizarFeed() {
